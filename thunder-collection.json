@@ -1,0 +1,331 @@
+{
+  "clientName": "Thunder Client",
+  "collectionName": "Kanban API (SDD Contract)",
+  "collectionId": "kanban-api-sdd-collection",
+  "dateExported": "2026-10-05T19:50:00.000Z",
+  "version": "1.1",
+  "folders": [
+    {
+      "_id": "folder_boards",
+      "name": "1. Tableros (Boards)",
+      "containerId": "",
+      "created": "2026-10-05T19:50:00.000Z"
+    },
+    {
+      "_id": "folder_columns",
+      "name": "2. Columnas (Columns)",
+      "containerId": "",
+      "created": "2026-10-05T19:50:00.000Z"
+    },
+    {
+      "_id": "folder_tickets",
+      "name": "3. Tickets (Tickets)",
+      "containerId": "",
+      "created": "2026-10-05T19:50:00.000Z"
+    },
+    {
+      "_id": "folder_negative",
+      "name": "4. Negative Boundaries & Validaciones",
+      "containerId": "",
+      "created": "2026-10-05T19:50:00.000Z"
+    }
+  ],
+  "requests": [
+    {
+      "_id": "req_create_board",
+      "colId": "kanban-api-sdd-collection",
+      "containerId": "folder_boards",
+      "name": "POST /api/boards - Crear Tablero",
+      "url": "{{baseUrl}}/api/boards",
+      "method": "POST",
+      "sortNum": 10000,
+      "created": "2026-10-05T19:50:00.000Z",
+      "modified": "2026-10-05T19:50:00.000Z",
+      "headers": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"Proyecto Sprint 1\",\n  \"description\": \"Tablero principal del sprint\"\n}"
+      },
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "201"
+        }
+      ]
+    },
+    {
+      "_id": "req_list_boards",
+      "colId": "kanban-api-sdd-collection",
+      "containerId": "folder_boards",
+      "name": "GET /api/boards - Listar Tableros",
+      "url": "{{baseUrl}}/api/boards",
+      "method": "GET",
+      "sortNum": 20000,
+      "created": "2026-10-05T19:50:00.000Z",
+      "modified": "2026-10-05T19:50:00.000Z",
+      "headers": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "200"
+        }
+      ]
+    },
+    {
+      "_id": "req_get_board",
+      "colId": "kanban-api-sdd-collection",
+      "containerId": "folder_boards",
+      "name": "GET /api/boards/:boardId - Obtener Tablero con Columnas",
+      "url": "{{baseUrl}}/api/boards/{{boardId}}",
+      "method": "GET",
+      "sortNum": 30000,
+      "created": "2026-10-05T19:50:00.000Z",
+      "modified": "2026-10-05T19:50:00.000Z",
+      "headers": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "200"
+        }
+      ]
+    },
+    {
+      "_id": "req_create_column",
+      "colId": "kanban-api-sdd-collection",
+      "containerId": "folder_columns",
+      "name": "POST /api/boards/:boardId/columns - Crear Columna",
+      "url": "{{baseUrl}}/api/boards/{{boardId}}/columns",
+      "method": "POST",
+      "sortNum": 40000,
+      "created": "2026-10-05T19:50:00.000Z",
+      "modified": "2026-10-05T19:50:00.000Z",
+      "headers": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"Por Hacer\",\n  \"order\": 0\n}"
+      },
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "201"
+        }
+      ]
+    },
+    {
+      "_id": "req_list_columns",
+      "colId": "kanban-api-sdd-collection",
+      "containerId": "folder_columns",
+      "name": "GET /api/boards/:boardId/columns - Listar Columnas de Tablero",
+      "url": "{{baseUrl}}/api/boards/{{boardId}}/columns",
+      "method": "GET",
+      "sortNum": 50000,
+      "created": "2026-10-05T19:50:00.000Z",
+      "modified": "2026-10-05T19:50:00.000Z",
+      "headers": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "200"
+        }
+      ]
+    },
+    {
+      "_id": "req_create_ticket",
+      "colId": "kanban-api-sdd-collection",
+      "containerId": "folder_tickets",
+      "name": "POST /api/boards/:boardId/columns/:columnId/tickets - Crear Ticket",
+      "url": "{{baseUrl}}/api/boards/{{boardId}}/columns/{{columnId}}/tickets",
+      "method": "POST",
+      "sortNum": 60000,
+      "created": "2026-10-05T19:50:00.000Z",
+      "modified": "2026-10-05T19:50:00.000Z",
+      "headers": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"Diseñar esquema de base de datos\",\n  \"description\": \"Definir tablas y relaciones\"\n}"
+      },
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "201"
+        }
+      ]
+    },
+    {
+      "_id": "req_list_tickets",
+      "colId": "kanban-api-sdd-collection",
+      "containerId": "folder_tickets",
+      "name": "GET /api/boards/:boardId/columns/:columnId/tickets - Listar Tickets",
+      "url": "{{baseUrl}}/api/boards/{{boardId}}/columns/{{columnId}}/tickets",
+      "method": "GET",
+      "sortNum": 70000,
+      "created": "2026-10-05T19:50:00.000Z",
+      "modified": "2026-10-05T19:50:00.000Z",
+      "headers": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "200"
+        }
+      ]
+    },
+    {
+      "_id": "req_patch_ticket",
+      "colId": "kanban-api-sdd-collection",
+      "containerId": "folder_tickets",
+      "name": "PATCH /api/boards/:boardId/columns/:columnId/tickets/:ticketId - Actualizar o Mover",
+      "url": "{{baseUrl}}/api/boards/{{boardId}}/columns/{{columnId}}/tickets/{{ticketId}}",
+      "method": "PATCH",
+      "sortNum": 80000,
+      "created": "2026-10-05T19:50:00.000Z",
+      "modified": "2026-10-05T19:50:00.000Z",
+      "headers": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"Diseñar esquema de base de datos (Actualizado)\"\n}"
+      },
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "200"
+        }
+      ]
+    },
+    {
+      "_id": "req_delete_ticket",
+      "colId": "kanban-api-sdd-collection",
+      "containerId": "folder_tickets",
+      "name": "DELETE /api/boards/:boardId/columns/:columnId/tickets/:ticketId - Eliminar Ticket",
+      "url": "{{baseUrl}}/api/boards/{{boardId}}/columns/{{columnId}}/tickets/{{ticketId}}",
+      "method": "DELETE",
+      "sortNum": 90000,
+      "created": "2026-10-05T19:50:00.000Z",
+      "modified": "2026-10-05T19:50:00.000Z",
+      "headers": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "204"
+        }
+      ]
+    },
+    {
+      "_id": "req_delete_column",
+      "colId": "kanban-api-sdd-collection",
+      "containerId": "folder_columns",
+      "name": "DELETE /api/boards/:boardId/columns/:columnId - Eliminar Columna (Cascada)",
+      "url": "{{baseUrl}}/api/boards/{{boardId}}/columns/{{columnId}}",
+      "method": "DELETE",
+      "sortNum": 100000,
+      "created": "2026-10-05T19:50:00.000Z",
+      "modified": "2026-10-05T19:50:00.000Z",
+      "headers": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "204"
+        }
+      ]
+    },
+    {
+      "_id": "req_delete_board",
+      "colId": "kanban-api-sdd-collection",
+      "containerId": "folder_boards",
+      "name": "DELETE /api/boards/:boardId - Eliminar Tablero (Cascada Total)",
+      "url": "{{baseUrl}}/api/boards/{{boardId}}",
+      "method": "DELETE",
+      "sortNum": 110000,
+      "created": "2026-10-05T19:50:00.000Z",
+      "modified": "2026-10-05T19:50:00.000Z",
+      "headers": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "204"
+        }
+      ]
+    },
+    {
+      "_id": "req_neg_not_found",
+      "colId": "kanban-api-sdd-collection",
+      "containerId": "folder_negative",
+      "name": "Negative: Board Inexistente retorna 404",
+      "url": "{{baseUrl}}/api/boards/660c1f10a89b4f2c1a000999",
+      "method": "GET",
+      "sortNum": 120000,
+      "created": "2026-10-05T19:50:00.000Z",
+      "modified": "2026-10-05T19:50:00.000Z",
+      "headers": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "404"
+        }
+      ]
+    },
+    {
+      "_id": "req_neg_bad_format",
+      "colId": "kanban-api-sdd-collection",
+      "containerId": "folder_negative",
+      "name": "Negative: ID con formato inválido retorna 400",
+      "url": "{{baseUrl}}/api/boards/id_invalido_123",
+      "method": "GET",
+      "sortNum": 130000,
+      "created": "2026-10-05T19:50:00.000Z",
+      "modified": "2026-10-05T19:50:00.000Z",
+      "headers": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "400"
+        }
+      ]
+    },
+    {
+      "_id": "req_neg_mismatch",
+      "colId": "kanban-api-sdd-collection",
+      "containerId": "folder_negative",
+      "name": "Negative: Columna no pertenece a tablero (Route Isolation)",
+      "url": "{{baseUrl}}/api/boards/{{boardId}}/columns/{{otherColumnId}}/tickets",
+      "method": "GET",
+      "sortNum": 140000,
+      "created": "2026-10-05T19:50:00.000Z",
+      "modified": "2026-10-05T19:50:00.000Z",
+      "headers": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "400"
+        }
+      ]
+    }
+  ]
+}
